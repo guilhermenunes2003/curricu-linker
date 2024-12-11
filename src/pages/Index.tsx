@@ -1,12 +1,70 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Hero } from "@/components/Hero";
+import { motion } from "framer-motion";
+import { CheckCircle, Upload, Download, Sparkles } from "lucide-react";
+
+const features = [
+  {
+    icon: <Upload className="h-6 w-6" />,
+    title: "Upload Simples",
+    description: "Faça upload do seu currículo em PDF ou DOCX"
+  },
+  {
+    icon: <Sparkles className="h-6 w-6" />,
+    title: "IA Avançada",
+    description: "Nossa IA adapta seu currículo para a vaga desejada"
+  },
+  {
+    icon: <Download className="h-6 w-6" />,
+    title: "Exportação Flexível",
+    description: "Exporte o resultado em PDF ou DOCX"
+  },
+  {
+    icon: <CheckCircle className="h-6 w-6" />,
+    title: "5 Adaptações Grátis",
+    description: "Comece gratuitamente com 5 adaptações"
+  }
+];
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-custom-dark">
+      <Hero />
+      
+      <section className="py-20 bg-custom-darker">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Como Funciona
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Processo simples e eficiente para adaptar seu currículo em minutos
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-custom-dark p-6 rounded-lg border border-gray-800 hover:border-custom-accent/50 transition-colors"
+              >
+                <div className="text-custom-accent mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-400">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
