@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Google } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { createClient } from "@supabase/supabase-js";
@@ -58,7 +58,7 @@ const Login = () => {
             className="w-full flex items-center justify-center gap-2 hover:bg-custom-accent hover:text-white transition-colors"
             onClick={handleGoogleLogin}
           >
-            <Google className="w-5 h-5" />
+            <Mail className="w-5 h-5" />
             Continuar com Google
           </Button>
           <Button
